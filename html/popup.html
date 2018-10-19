@@ -1,0 +1,78 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Speed | ClientSide Performance Evaluator</title>
+	<link type="text/css" rel="stylesheet" media="all" href="../css/style.css">
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+	<script src="../js/jquery-2.2.2.min.js"></script>
+	<script src="../js/piwik.js" charset="UTF-8"></script>
+  </head>
+  <body>
+	  <table width="100%">
+		  <tr>
+			  <td width="102px">
+				  <img width="100px" src="../images/KPI.png"/>
+			  </td>
+			  <td>
+				  <span class="tool_tile" >ClientSide Performance Evaluator</span>
+			  </td>
+			  <td width="250px">
+				  <p id="loading_trace"></p>
+				  <input type="submit" id="reset_form" class="reset_form" value="Reset">
+			  </td>
+		  </tr>
+		  <tr>
+			  <td colspan="3"><hr/></td>
+		  </tr>
+	  </table>
+	  <div id="base_page"><br><br><br><br>
+		  <p id="invalidUrl">Ooops, invalid URL .. ensure url is reachable or starts with http ;)</p>
+		  <input type="text" placeholder="Feature URL..." id="http_url1_submit_text" name="http_url1" /><br><br>
+		  <input type="text" placeholder="Optional Baseline HTTP URL for comparison..." id="http_url2_submit_text" name="http_url1" /><br><br>
+		  <input type="submit" id="url_submit" class="url_submit" value="Check Performance" />
+	  </div>
+	  <div id="report_page" class="hidden">
+	  <table width="100%">
+		  <tr>
+			  <td class="nwlog-cell" rowspan="2">
+				  <p class="title">Network Log Trace</p>
+				  <div class="nwlog-div" id="status">
+					  <table id="network_log_table">
+						  <tr><td></td><td></td></tr>
+					  </table>
+				  </div>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td class="cell left-cell">
+				  <p class="title">Speed Metrics -Feature</p>
+				  <div class="speed_data_div" id="speed_data_div">
+					  <table id="speed_data_table">
+						  <tr><td></td><td></td></tr>
+					  </table>
+				  </div>
+			  </td>
+			  <td class="cell left-cell">
+				  <p class="title">Comparison with Baseline</p>
+				  <div class="HTTP_comparison_div" id="HTTP_comparison_div">
+					  <table id="HTTP_comparison_table">
+						  <tr><td></td><td></td><td></td></tr>
+					  </table>
+				  </div>
+			  </td>
+		  </tr>
+	  </table>
+	  </div>
+	  <script src="../js/httpscheck.js"></script>
+  </body>
+</html>

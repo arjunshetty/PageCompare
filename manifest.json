@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+
+  "name": "KPI | Clientside Page Compare",
+  "description": "Chrome extension for evaluating the performance of your page and compare - By Arjun Shetty.",
+  "version": "2.0",
+
+
+  "icons": {
+	  "16": "images/icon.png",
+	  "48": "images/icon.png",
+	  "128": "images/icon.png"
+  },
+
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "html/start.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/jquery-2.2.2.min.js", "js/base.js"]
+    }
+  ],
+
+  "permissions": [
+	"<all_urls>","webRequest","webRequestBlocking","unlimitedStorage","contextMenus","tabs"
+  ],
+  "background": {
+    "scripts": [
+	  "js/rightClickMenu.js"
+	]
+  }
+}
